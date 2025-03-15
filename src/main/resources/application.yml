@@ -1,0 +1,11 @@
+server:
+  servlet:
+    context-path: /api/ai-resume-builder-service
+
+spring:
+  application:
+    name: ai-resume-builder-service
+  ai:
+    ollama:
+      chat:
+        model: "deepseek-r1:latest"

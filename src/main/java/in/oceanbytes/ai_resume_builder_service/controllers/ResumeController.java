@@ -13,7 +13,7 @@ import java.util.Map;
 @CrossOrigin("*")
 @RequestMapping("/v1")
 public class ResumeController {
-private final ResumeService resumeService;
+    private final ResumeService resumeService;
 
     public ResumeController(ResumeService resumeService) {
         this.resumeService = resumeService;
