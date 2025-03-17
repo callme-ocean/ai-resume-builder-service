@@ -1,6 +1,8 @@
 package in.oceanbytes.ai_resume_builder_service.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.prompt.Prompt;
 import org.springframework.core.io.ClassPathResource;
@@ -15,7 +17,9 @@ import java.util.Map;
 @Service
 public class ResumeServiceImpl implements ResumeService {
 
-    private ChatClient chatClient;
+    private final ChatClient chatClient;
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ResumeServiceImpl.class);
 
     public ResumeServiceImpl(ChatClient.Builder builder) {
         this.chatClient = builder.build();
@@ -72,7 +76,7 @@ public class ResumeServiceImpl implements ResumeService {
                 jsonResponse.put("data", dataContent);
             } catch (Exception e) {
                 jsonResponse.put("data", null); // Handle invalid JSON
-                System.err.println("Invalid JSON format in the response: " + e.getMessage());
+                LOGGER.error("Invalid JSON format in the response: {}", e.getMessage());
             }
         } else {
             jsonResponse.put("data", null); // Handle missing JSON

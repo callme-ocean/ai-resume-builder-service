@@ -14,7 +14,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import java.lang.invoke.MethodHandles;
 
 @Aspect
-@Component("web-logging-aspect")
+@Component("webLoggingAspect")
 public class LoggingAspect {
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
