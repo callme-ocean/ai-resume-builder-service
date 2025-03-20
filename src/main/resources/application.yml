@@ -9,3 +9,14 @@ spring:
     ollama:
       chat:
         model: "deepseek-r1:latest"
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
+
+logging:
+  level:
+    root: INFO
+    in.oceanbytes.ai_resume_builder_service: INFO

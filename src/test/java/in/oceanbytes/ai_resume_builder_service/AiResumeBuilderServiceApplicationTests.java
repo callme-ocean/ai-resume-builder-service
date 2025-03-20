@@ -15,7 +15,7 @@ class AiResumeBuilderServiceApplicationTests {
 
 	@Test
 	void contextLoads() throws IOException {
-		resumeService.generateResumeResponse("I'm Sagar Bhadouria with 4 years of java experience.");
+		resumeService.generateResumeContent("I'm Sagar Bhadouria with 4 years of java experience.");
 	}
 
 }

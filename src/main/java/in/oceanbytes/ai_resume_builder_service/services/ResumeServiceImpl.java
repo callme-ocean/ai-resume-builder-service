@@ -27,7 +27,7 @@ public class ResumeServiceImpl implements ResumeService {
 
 
     @Override
-    public Map<String, Object> generateResumeResponse(String userResumeDescription) throws IOException {
+    public Map<String, Object> generateResumeContent(String userResumeDescription) throws IOException {
         String promptString = this.loadPromptFromFile("resume_prompt.txt");
         String promptContent = this.putValuesToTemplate(promptString, Map.of("userDescription", userResumeDescription));
         Prompt prompt = new Prompt(promptContent);
@@ -82,6 +82,7 @@ public class ResumeServiceImpl implements ResumeService {
             jsonResponse.put("data", null); // Handle missing JSON
         }
 
+        LOGGER.debug("response map: {}", jsonResponse);
         return jsonResponse;
     }
 }
